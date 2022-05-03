@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+
+    <title>laurynas jakštas</title>
+</head>
+<body>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/866396f70a.js" crossorigin="anonymous"></script>
+
+
+
+    <div class="page-box">
+
+
+        <nav class="nav-box navbar sticky-top navbar-expand-sm navbar-light justify-content-between">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">about me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">contact me</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sticky-top social-icon-box">
+                <a class="social-icon" href="mailto:laurynas.jakstas@gmail.com"><i class="fa-solid fa-square-envelope"></i></a>
+                <a class="social-icon" href="https://www.linkedin.com/in/laurynas-jak%C5%A1tas-81b05bb9/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a class="social-icon" href="https://github.com/laujak?tab=repositories" target="_blank"><i class="fa-brands fa-github-square"></i></a>
+            </div>
+        </nav>
+
+    <section id="about">
+        <div class="container-fluid test">
+            <div class="row test align-items-center">
+                <div class="test col-lg-3 col-sm-12">
+                    <a href="#about">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="test col-lg-9 col-sm-12">
+                    <div class="section-box">
+                        <div class="container no-padding">
+                            <div class="row name-box">
+                                <div class="col-md-9 no-padding">
+                                    <span class="name-title">Laurynas Jakštas</span>
+                                    <p class="name-describe">Automation Engineer and junior Software Developer</p>
+                                </div>
+                                <div class="col-md-3 no-padding">
+                                    <img class="about-img" src="static/img/image.png">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p class="about-item-name"><i class="fa-solid fa-graduation-cap"></i> education</p>
+                        <div class="about-item">
+                            <span class="about-item-text">Vilnius Gediminas Technical University</span>
+                            <p class="about-item-subtext">Bachelor of Electical Engineering (Automation)</p>
+                            <p class="about-item-subtext">2013-2017</p>
+                        </div>
+                        <div class="about-item">
+                            <span class="about-item-text">Vilnius Gediminas Technical University</span>
+                            <p class="about-item-subtext">Master of Electical Engineering (Automation)</p>
+                            <p class="about-item-subtext">2017-2019</p>
+                        </div>
+                        <p class="about-item-name"><i class="fa-solid fa-briefcase"></i> jobs</p>
+                        <div class="about-item">
+                            <span class="about-item-text">Odri UAB</span>
+                            <p class="about-item-subtext">Automation Engineer</p>
+                            <p class="about-item-subtext">2015-</p>
+                        </div>
+                        <p class="about-item-name"><i class="fa-solid fa-mountain-sun"></i> hobbies</p>
+                        <div class="about-item">
+                            <span class="about-item-text">arts</span>
+                            <p class="about-item-subtext">music</p>
+                        </div>
+                        <div class="about-item">
+                            <span class="about-item-text">travel with challenge</span>
+                            <p class="about-item-subtext">hiking</p>
+                            <p class="about-item-subtext">cycling</p>
+                        </div>
+                        <hr>
+                        <button type="button" class="btn btn-outline-secondary">download cv <i class="fa-solid fa-file-pdf"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container-fluid test">
+            <div class="row test align-items-center">
+                <div class="test col-lg-3 col-sm-12">
+                    <a href="#skills">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="test col-lg-9 col-sm-12">
+                    <div class="section-box">
+                       <p class="about-item-name"><i class="fa-solid fa-microchip"></i> automation</p>
+                        <div class="about-item">
+                            <span class="about-item-text">building management systems (BMS)</span>
+                            <p class="about-item-subtext">Siemens Desigo CC</p>
+                            <p class="about-item-subtext">Siemens Desigo Insight</p>
+                        </div>
+                        <div class="about-item">
+                            <span class="about-item-text">programmable logic controllers (PLC)</span>
+                            <p class="about-item-subtext">WAGO</p>
+                            <p class="about-item-subtext">Siemens Simatic</p>
+                        </div>
+                        <div class="about-item">
+                            <span class="about-item-text">protocols</span>
+                            <p class="about-item-subtext">BACnet/IP</p>
+                            <p class="about-item-subtext">KNX</p>
+                            <p class="about-item-subtext">Modbus TCP/IP and RTU</p>
+                            <p class="about-item-subtext">MBus</p>
+                        </div>
+                       <p class="about-item-name"><i class="fa-solid fa-laptop-code"></i> software</p>
+                        <div class="about-item">
+                            <span class="about-item-text">programming languages</span>
+                            <p class="about-item-subtext">python</p>
+                        </div>
+                       <p class="about-item-name"><i class="fa-solid fa-paw"></i> personal</p>
+                        <div class="about-item">
+                            <span class="about-item-text">languages</span>
+                            <p class="about-item-subtext">lithuanian</p>
+                            <p class="about-item-subtext">english</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container-fluid test">
+            <div class="row test align-items-center">
+                <div class="test col-lg-3 col-sm-12">
+                    <a href="#contact">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="test col-lg-9 col-sm-12">
+                    <div class="section-box">
+                       <p class="about-item-name"><i class="fa-solid fa-phone"></i> contact me</p>
+                        <div class="about-item">
+                            <span class="about-item-text">email</span>
+                            <p class="about-item-subtext"><a class="link" href="mailto:laurynas.jakstas@gmail.com">laurynas.jakstas@gmail.com</a></p>
+                        </div>
+                        <div class="about-item">
+                            <span class="about-item-text">phone</span>
+                            <p class="about-item-subtext"><a class="link" href="tel:+37063077770">+37063077770</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-text">Copyright © Laurynas Jakštas</p>
+    </footer>
+
+</div>
+
+
+
+
+
+</body>
+</html>
