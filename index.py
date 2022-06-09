@@ -3,6 +3,7 @@ import os
 
 phone = os.environ.get("PHONE")
 email = os.environ.get("EMAIL")
+fa_kit = os.environ.get("FA_KIT")
 
 app = Flask(__name__)
 
