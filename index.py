@@ -1,11 +1,15 @@
 from flask import Flask, render_template
+import os
+
+phone = os.environ.get("PHONE")
+email = os.environ.get("EMAIL")
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", phone=phone, email=email)
 
 
 if __name__ == "__main__":
