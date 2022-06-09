@@ -9,5 +9,5 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="10.13.1.4")
+    app.run()
 
