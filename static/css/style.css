@@ -77,6 +77,12 @@ footer {
     background-color: var(--color4);
 }
 
+@media (hover: none) {
+    .icon-box {
+        color: #BADA55;
+    }
+}
+
 
 .test {
     padding: 0;
