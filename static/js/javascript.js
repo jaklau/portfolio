@@ -1,5 +1,5 @@
 const main = document.getElementsByClassName('main')[0];
-main.addEventListener('click', navbar_hide2)
+main.addEventListener('click', navbar_hide_smooth)
 
 
 function navbar_hide() {
@@ -7,8 +7,10 @@ function navbar_hide() {
   navContent.setAttribute("class", "navbar-collapse collapse");
 }
 
-function navbar_hide2() {
+function navbar_hide_smooth() {
   const navContent = document.getElementById('navbarContent');
-  const bsCollapse = new bootstrap.Collapse(navContent, {toggle:false})
+  const bsCollapse = new bootstrap.Collapse(navContent, {
+    toggle: false
+  })
   bsCollapse.hide()
 }
