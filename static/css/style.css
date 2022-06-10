@@ -130,7 +130,7 @@ img {
 }
 
 @media (max-width: 992px) {
-    .icon-box {height: auto;padding: 10px;width: 100%;}
+    .icon-box {height: auto;padding: 10px;width: 100%;font-size: 1rem;}
     #about, #skills {margin-bottom: 0;}
     .navbar, footer {max-width: 100%;}
     body {padding-top: 0; padding-right: 0;}
