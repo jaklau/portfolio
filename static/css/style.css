@@ -3,6 +3,7 @@
     --color2: #525E75;
     --color3: #78938A;
     --color4: #92BA92;
+    --bs-border-width: 0;
 }
 
 body {
