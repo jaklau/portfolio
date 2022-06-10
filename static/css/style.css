@@ -72,11 +72,12 @@ footer {
 
 
 
-@media (hover: hover) and (pointer: fine) {
+
 .icon-box:hover {
     background-color: var(--color4);
 }
-}
+
+
 
 
 .test {
@@ -134,6 +135,7 @@ img {
     .navbar, footer {max-width: 100%;}
     body {padding-top: 0; padding-right: 0;}
     .section-box {border-bottom: 0;}
+    .icon-box:hover {background-color: var(--color3);}
 }
 
 .social-icon-box {
