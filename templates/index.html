@@ -18,12 +18,14 @@
 
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/{{ fa_kit }}.js" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/javascript.js') }}"></script>
     <title>laurynas jakštas</title>
 </head>
 <body>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
 
     <div class="page-box">
 
@@ -36,13 +38,13 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">about me</a>
+                        <a class="nav-link" href="#about" onclick="navbar_hide()">about me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">skills</a>
+                        <a class="nav-link" href="#skills" onclick="navbar_hide()">skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">contact me</a>
+                        <a class="nav-link" href="#contact" onclick="navbar_hide()">contact me</a>
                     </li>
                 </ul>
             </div>
