@@ -72,15 +72,10 @@ footer {
 
 
 
-
+@media (hover: hover) and (pointer: fine) {
 .icon-box:hover {
     background-color: var(--color4);
 }
-
-@media (hover: none) {
-    .icon-box {
-        color: #BADA55;
-    }
 }
 
 
