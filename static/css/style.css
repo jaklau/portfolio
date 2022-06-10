@@ -231,3 +231,10 @@ margin: 0;}
     border-color: var(--color3);
 }
 
+.navbar {
+    --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-toggler {
+    color: rgba(0, 0, 0, 0);
+}
