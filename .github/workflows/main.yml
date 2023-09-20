@@ -1,0 +1,21 @@
+name: build-push
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'configs'
+jobs:
+  build-push:
+    runs-on:
+      - self-hosted
+      - bnk
+
+    steps:
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
+        
