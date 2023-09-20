@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'configs'
+      - 'configs/**'
 jobs:
   build-push:
     runs-on:
