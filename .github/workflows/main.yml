@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Step following 'Import Secrets'
         run: |
-          echo "sveiki" >> $PASS
+          echo echo "PASS=sveiki" >> $GITHUB_ENV
       - name: Step following 'Import Secrets2'
         run: |
           env
