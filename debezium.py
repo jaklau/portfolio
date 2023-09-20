@@ -62,12 +62,14 @@ def update_config(config_file):
 
 if __name__ == "__main__":
     type = int(sys.argv[1])
-    config_file = sys.argv[2]
+    config_files = sys.argv[2].split(' ')
 
     if type == 0:
-        send_config(config_file)
+        for file in config_files:
+            send_config(file)
     elif type == 1:
-        update_config(config_file)
+        for file in config_files:
+            update_config(file)
 
 
 
