@@ -21,7 +21,6 @@ jobs:
       - name: Get all test, doc and src files that have changed
         id: changed-files-yaml
         uses: jitterbit/get-changed-files@v1
-            done
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
             echo "Do something with this ${changed_file}."
