@@ -50,4 +50,4 @@ jobs:
         run: python debezium.py "add" "${{ steps.abc.outputs.added }}"
 
       - name: update configs
-        run: python debezium.py "update "${{ steps.abc.outputs.modified }}"
+        run: python debezium.py "update" "${{ steps.abc.outputs.modified }}"
