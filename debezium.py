@@ -8,36 +8,31 @@ def open_file(config_file):
     with open(config_file, 'r') as file:
         data = file.read()
         data = json.loads(data)
-    
-    
+
+
     for key, value in data['config'].items():
         if '$' in value:
-            print(key, value)
             value = value.replace('$', '')
             data['config'][key] = environ[value]
-    
+
     print(data)
     return data
 
-response = requests.get(
-    'http://redpanda.hostinger.io:8083/connectors',
-    headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
-)
-print(response.text)
 
 
 def send_config(config_file):
     data = open_file(config_file)
-    
-    response = requests.post(
-        'http://redpanda.hostinger.io:8083/connectors',
-        json=data,
-        headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
-    )
 
-    response.raise_for_status()
-
-    print(response.text)
+    print(data)
+    # response = requests.post(
+    #     'http://redpanda.hostinger.io:8083/connectors',
+    #     json=data,
+    #     headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
+    # )
+    #
+    # response.raise_for_status()
+    #
+    # print(response.text)
 
 
 def delete_config(connector):
@@ -52,16 +47,18 @@ def delete_config(connector):
 
 def update_config(config_file):
     data = open_file(config_file)
-    
-    response = requests.put(
-        f'http://redpanda.hostinger.io:8083/connectors/{data["name"]}/config',
-        json=data['config'],
-        headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
-    )
 
-    response.raise_for_status()
+    print(data)
 
-    print(response.text)
+    # response = requests.put(
+    #     f'http://redpanda.hostinger.io:8083/connectors/{data["name"]}/config',
+    #     json=data['config'],
+    #     headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
+    # )
+    #
+    # response.raise_for_status()
+    #
+    # print(response.text)
 
 
 if __name__ == "__main__":
@@ -72,4 +69,6 @@ if __name__ == "__main__":
         send_config(config_file)
     elif type == 1:
         update_config(config_file)
+
+
 
