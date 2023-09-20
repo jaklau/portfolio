@@ -12,6 +12,9 @@ jobs:
       - name: Step following 'Import Secrets'
         run: |
           export PASS=sveiki
+      - name: Step following 'Import Secrets2'
+        run: |
+          env
       - uses: actions/checkout@v2.1.0
       - uses: jitterbit/get-changed-files@v1
         id: abc
