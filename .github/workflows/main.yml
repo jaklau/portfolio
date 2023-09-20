@@ -47,7 +47,7 @@ jobs:
           pip install requests
 
       - name: send configs
-        run: python debezium.py 0 "${{ steps.abc.outputs.added }}"
+        run: python debezium.py "add" "${{ steps.abc.outputs.added }}"
 
       - name: update configs
-        run: python debezium.py 1 "${{ steps.abc.outputs.modified }}"
+        run: python debezium.py "update "${{ steps.abc.outputs.modified }}"
