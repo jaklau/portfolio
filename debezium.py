@@ -23,15 +23,6 @@ def add_config(config_file):
     data = open_file(config_file)
     print(f'Sending config file "{config_file}" to add a connection.')
     print(data)
-    # response = requests.post(
-    #     'http://redpanda.hostinger.io:8083/connectors',
-    #     json=data,
-    #     headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
-    # )
-    #
-    # response.raise_for_status()
-    #
-    # print(response.text)
 
 
 def delete_config(connector):
@@ -50,15 +41,7 @@ def update_config(config_file):
 
     print(data)
 
-    # response = requests.put(
-    #     f'http://redpanda.hostinger.io:8083/connectors/{data["name"]}/config',
-    #     json=data['config'],
-    #     headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
-    # )
-    #
-    # response.raise_for_status()
-    #
-    # print(response.text)
+
 
 
 if __name__ == "__main__":
