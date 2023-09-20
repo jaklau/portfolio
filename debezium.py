@@ -15,7 +15,6 @@ def open_file(config_file):
             value = value.replace('$', '')
             data['config'][key] = environ[value]
 
-    print(data)
     return data
 
 
