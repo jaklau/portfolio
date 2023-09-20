@@ -1,3 +1,4 @@
 {
-"test1": "testas10"
+"name": "testas10",
+"config": {"address": "testas11"}
 }
