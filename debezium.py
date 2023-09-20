@@ -19,9 +19,9 @@ def open_file(config_file):
 
 
 
-def send_config(config_file):
+def add_config(config_file):
     data = open_file(config_file)
-
+    print(f'Sending config file "{config_file}" to add a connection.')
     print(data)
     # response = requests.post(
     #     'http://redpanda.hostinger.io:8083/connectors',
@@ -45,6 +45,7 @@ def delete_config(connector):
 
 
 def update_config(config_file):
+    print(f'Sending config file "{config_file}" to update a connection.')
     data = open_file(config_file)
 
     print(data)
@@ -61,13 +62,16 @@ def update_config(config_file):
 
 
 if __name__ == "__main__":
-    type = int(sys.argv[1])
+    type = sys.argv[1]
     config_files = sys.argv[2].split(' ')
+    
+    if config_files:
+        print(f'No config files to {type} a connection.')
 
-    if type == 0:
+    if type == 'add':
         for file in config_files:
-            send_config(file)
-    elif type == 1:
+            add_config(file)
+    elif type == 'update':
         for file in config_files:
             update_config(file)
 
