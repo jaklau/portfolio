@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Step following 'Import Secrets'
         run: |
-          export PASS=sveiki
+          echo "sveiki" >> $PASS
       - name: Step following 'Import Secrets2'
         run: |
           env
