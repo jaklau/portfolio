@@ -6,22 +6,17 @@ on:
     paths:
       - 'configs/**'
 jobs:
-  # ------------------------------------------------------------------------------------------------------------------------------------------------
-  # Event `pull_request`: Compare the last commit of the main branch or last remote commit of the PR branch -> to the current commit of a PR branch.
-  # ------------------------------------------------------------------------------------------------------------------------------------------------
-  changed_files:
-    runs-on: ubuntu-latest  # windows-latest || macos-latest
-    name: Test changed-files
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2.1.0
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
         with:
-          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
-
-      # Example 1
-      - name: Get all test, doc and src files that have changed
-        id: changed-files-yaml
-        uses: jitterbit/get-changed-files@v1
-      - run: |
+          format: space-delimited
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Printing
+        run: |
           echo "All:"
           echo "${{ steps.abc.outputs.all }}"
           echo "Added:"
@@ -34,4 +29,3 @@ jobs:
           echo "${{ steps.abc.outputs.modified }}"
           echo "Added+Modified:"
           echo "${{ steps.abc.outputs.added_modified }}"
-        
