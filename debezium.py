@@ -64,16 +64,17 @@ def update_config(config_file):
 if __name__ == "__main__":
     type = sys.argv[1]
     config_files = sys.argv[2].split(' ')
-    
-    if config_files:
-        print(f'No config files to {type} a connection.')
 
-    if type == 'add':
-        for file in config_files:
-            add_config(file)
-    elif type == 'update':
-        for file in config_files:
-            update_config(file)
+    if config_files == ['']:
+        print(f'No config files to {type} a connection.')
+    else:
+
+        if type == 'add':
+            for file in config_files:
+                add_config(file)
+        elif type == 'update':
+            for file in config_files:
+                update_config(file)
 
 
 
