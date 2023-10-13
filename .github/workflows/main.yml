@@ -40,6 +40,8 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v39.2.2
+        with:
+          files: configs/*.{json}  # Alternatively using: `docs/**` or `docs`
 
       - name: List all changed files
         run: |
