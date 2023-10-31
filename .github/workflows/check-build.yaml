@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: jaklau-patch-2
+          ref: refs/heads/jaklau-patch-2
         
       - uses: actions/setup-node@v3
         with:
