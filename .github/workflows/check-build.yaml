@@ -1,8 +1,12 @@
 name: example-workflow
-on: [push]
+on:
+  issue_comment:
+    types:
+      - created
 jobs:
   production-deploy:
     runs-on: ubuntu-latest
+    if: ${{ github.event.comment.body == 'dbt build'}}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
