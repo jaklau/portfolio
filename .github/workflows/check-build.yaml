@@ -2,6 +2,8 @@ name: example-workflow
 on:
   pull_request:
     types: [opened, synchronize]
+  issue_comment:
+    types: [created]
 jobs:
   check_comments:
     runs-on: ubuntu-latest
