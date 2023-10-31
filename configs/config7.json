@@ -1,4 +1,5 @@
 {
 "name": "testas114",
-"config": {"address": "$PASS"}
+"config": {"address": "$PASS"},
+"name": "testas"
 }
