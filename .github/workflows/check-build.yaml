@@ -1,17 +1,24 @@
 name: example-workflow
 on:
+  pull_request:
+    types: [opened, synchronize]
   issue_comment:
-    types:
-      - created
-  workflow_dispatch:
+    types: [created]
 jobs:
-  production-deploy:
+  check_comments:
     runs-on: ubuntu-latest
-    # if: ${{ github.event.comment.body == 'dbt build'}}
+    outputs:
+      kf_trigger: ${{ steps.check.outputs.triggered }}
     steps:
-      - uses: actions/checkout@v3
-        
-      - uses: actions/setup-node@v3
+      - uses: khan/pull-request-comment-trigger@master
+        id: check
         with:
-          node-version: '14'
-      - run: echo 1
+          trigger: 'LTKF!'
+          reaction: rocket
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+  tests:
+    # Run this one only when pull-request-comment-trigger was triggered
+    if: ${{ needs.check_comments.outputs.kf_trigger == 'true' }}
+    uses: ./.github/workflows/kubeflow.yml
