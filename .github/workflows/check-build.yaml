@@ -1,8 +1,7 @@
 name: example-workflow
 on:
   pull_request_review_comment:
-    types:
-      - created
+    types: [created]
 jobs:
   production-deploy:
     runs-on: ubuntu-latest
