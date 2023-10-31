@@ -2,7 +2,6 @@ name: example-workflow
 on: [push]
 jobs:
   production-deploy:
-    if: github.repository == 'jaklau/portfolio/configs'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
