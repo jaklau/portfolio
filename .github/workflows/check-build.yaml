@@ -8,9 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.comment.body == 'dbt build'}}
     steps:
-      - uses: actions/checkout@v4
+      - uses: xt0rted/pull-request-comment-branch@v2
+        id: comment-branch
+
+      - uses: actions/checkout@v3
+        if: success()
         with:
-          ref: refs/heads/jaklau-patch-2
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
         
       - uses: actions/setup-node@v3
         with:
