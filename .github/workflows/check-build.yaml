@@ -1,39 +1,18 @@
-name: DBT Build Check
-
+name: example-workflow
 on:
   issue_comment:
     types:
       - created
-  pull_request:
-    paths:
-      - 'configs/**' # Trigger only for pull requests in the configs/ path
-
 jobs:
-  dbt_build_check:
+  production-deploy:
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.comment.body == 'dbt build'}}
     steps:
-    - name: Check if issue comment contains 'dbt build'
-      id: check_comment
-      uses: actions/github-script@v5
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const issueComment = context.payload.comment.body;
-          const hasDbtBuild = /dbt build/i.test(issueComment);
-          return { hasDbtBuild };
-
-    - name: Skip if PR not in configs/ path or missing 'dbt build' comment
-      if: steps.check_comment.outputs.hasDbtBuild == false || github.event_name != 'pull_request'
-      run: echo "Skipping the DBT Build check."
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
-    - name: Install DBT
-      run: pip install dbt
-
-    - name: Run DBT Build
-      run: dbt build
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/pull/${{ github.event.issue.number }}/head
+        
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: echo 1
