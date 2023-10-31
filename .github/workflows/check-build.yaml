@@ -2,7 +2,7 @@ name: example-workflow
 on: [push]
 jobs:
   production-deploy:
-    if: github.repository == 'configs'
+    if: github.repository == 'portfolio/configs'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
