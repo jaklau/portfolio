@@ -17,8 +17,3 @@ jobs:
           reaction: rocket
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-
-  tests:
-    # Run this one only when pull-request-comment-trigger was triggered
-    if: ${{ needs.check_comments.outputs.kf_trigger == 'true' }}
-    uses: ./.github/workflows/kubeflow.yml
