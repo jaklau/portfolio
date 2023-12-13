@@ -3,9 +3,9 @@
 [lint]
 # 1. Enable flake8-bugbear (`B`) rules, in addition to the defaults.
 select = ["ALL"]
-
+unfixable = ['ALL']
 ignore = ['INP001', 'D100', 'CPY001', 'T201', 'ERA001', 'D212', 'D203', 'ANN101', 'ANN201', 'D1', 'COM812', 'PERF401',
-    'PTH123', 'S506', 'TRY002', 'TRY003', 'EM101']
+    'PTH123', 'S506', 'TRY002', 'TRY003', 'EM101', 'PLC0415', 'PLW1514']
 
 [lint.mccabe]
 # Flag errors (`C901`) whenever the complexity level exceeds 15.
