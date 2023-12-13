@@ -4,7 +4,6 @@ from os import environ
 import time
 
 
-
 print(environ['DATA_DIR'])
 print(datetime.datetime.now(tz=datetime.timezone.utc))
 # print(DAG)
