@@ -1,0 +1,24 @@
+#https://docs.astral.sh/ruff/rules
+
+[lint]
+# 1. Enable flake8-bugbear (`B`) rules, in addition to the defaults.
+select = ["ALL"]
+
+ignore = ['INP001', 'D100', 'CPY001', 'T201', 'ERA001', 'D212', 'D203', 'ANN101', 'ANN201', 'D1', 'COM812', 'PERF401',
+    'PTH123', 'S506', 'TRY002', 'TRY003', 'EM101']
+
+[lint.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds 15.
+max-complexity = 15
+
+[lint.isort]
+# use a-z sorter
+lines-after-imports = 2
+no-sections = true
+force-sort-within-sections = true
+
+[lint.flake8-quotes]
+inline-quotes = "single"
+
+[lint.pycodestyle]
+max-line-length = 120
