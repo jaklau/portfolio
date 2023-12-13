@@ -46,4 +46,4 @@ jobs:
           pip install ruff
 
       - name: send configs
-        run: ruff check --config .github/workflows/ruff.toml --preview ${{ steps.abc.outputs.all_changed_files }}         
+        run: ruff check --config .github/workflows/ruff.toml --preview ${{ steps.changed-files.outputs.all_changed_files }}         
