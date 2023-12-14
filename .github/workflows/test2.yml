@@ -1,8 +1,10 @@
 name: python-lint
 
 on:
-  workflow_dispatch:
   push:
+    branches-ignore:
+      - master
+      - main
     paths:
       - '**.py'
 
