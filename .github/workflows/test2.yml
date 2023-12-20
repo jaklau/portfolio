@@ -30,7 +30,6 @@ jobs:
         uses: chartboost/ruff-action@v1
         with:
           src: ${{ steps.changed-files.outputs.all_changed_files }} 
-          options: check
           args: --preview
 
       - name: Run ruff linter
