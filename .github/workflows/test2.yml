@@ -31,8 +31,7 @@ jobs:
         with:
           src: ${{ steps.changed-files.outputs.all_changed_files }} 
           version: 0.0.259
-          config: .github/workflows/ruff.toml
-          args: check
+          args: check --config .github/workflows/ruff.toml
 
       - name: Run ruff linter
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
