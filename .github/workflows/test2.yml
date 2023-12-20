@@ -30,7 +30,7 @@ jobs:
         uses: chartboost/ruff-action@v1
         with:
           src: ${{ steps.changed-files.outputs.all_changed_files }} 
-          args: --preview
+          args: --config .github/workflows/ruff.toml --preview
 
       - name: Run ruff linter
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
