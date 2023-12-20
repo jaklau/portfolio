@@ -10,6 +10,7 @@ cf_sitekey = os.environ.get("CF_SITEKEY")
 app = Flask(__name__)
 
 
+
 @app.route("/")
 def home():
     return render_template("index.html", phone=phone, email=email, fa_kit=fa_kit, cf_sitekey=cf_sitekey)
