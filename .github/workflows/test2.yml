@@ -2,7 +2,10 @@ name: python-lint
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
+    branches-ignore:
+      - master
+      - main
     paths:
       - '**.py'
 
@@ -14,12 +17,13 @@ jobs:
         with:
           fetch-depth: 0
 
+
       # Example 1
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v40
         with:
-          files: "*.py"
+          files: '**.py'
 
       - name: Setup python
         uses: actions/setup-python@v4
@@ -32,4 +36,5 @@ jobs:
           pip install ruff
 
       - name: Run ruff linter
+        if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: ruff check --config .github/workflows/ruff.toml --preview ${{ steps.changed-files.outputs.all_changed_files }}         
