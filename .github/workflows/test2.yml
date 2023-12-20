@@ -1,49 +1,40 @@
-name: test2
+name: python-lint
 
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    # branches-ignore:
+    #   - master
+    #   - main
     paths:
       - '**.py'
 
 jobs:
-  # ------------------------------------------------------------------------------------------------------------------------------------------------
-  # Event `pull_request`: Compare the last commit of the main branch or last remote commit of the PR branch -> to the current commit of a PR branch.
-  # ------------------------------------------------------------------------------------------------------------------------------------------------
-  changed_files:
-    runs-on: ubuntu-latest  # windows-latest || macos-latest
-    name: Test changed-files
+  python-lint:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
+          fetch-depth: 0
+
 
       # Example 1
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v40
         with:
-          files: "*.py"
-        
-        # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
-        # with:
-        #   since_last_remote_commit: true 
+          files: '**.py'
 
-      - name: List all changed files
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
-
-      - name: setup python
+      - name: Setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10' # install the python version needed
+          python-version: '3.10'
 
-      - name: install python packages
+      - name: Install python packages
         run: |
           python -m pip install --upgrade pip
           pip install ruff
 
-      - name: send configs
+      - name: Run ruff linter
+        if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: ruff check --config .github/workflows/ruff.toml --preview ${{ steps.changed-files.outputs.all_changed_files }}         
