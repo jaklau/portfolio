@@ -43,7 +43,8 @@ jobs:
         run: | 
           a=$(sed 's/ /\\ /g' <<< "${{ steps.changed-files.outputs.all_changed_files }}")
           a=$(sed 's/,/ /g' <<< "$a")
-          echo $a
+          echo ${{ a }}
+          sqlfluff ${{ a }}
           sqlfluff lint debezium.py test/sveik\ nu/nu.py
 
       - name: Run ruff linter new
