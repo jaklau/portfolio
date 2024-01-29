@@ -41,7 +41,7 @@ jobs:
         run: | 
           varlist=()
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            varlist+=\"$file\ "
+            varlist+=\"$file\" + " "
           done
           echo $varlist
 
