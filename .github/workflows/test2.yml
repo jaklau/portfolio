@@ -45,7 +45,7 @@ jobs:
           a=$(sed 's/,/ /g' <<< "$a")
           cmd=(sqlfluff lint "${a[*]}")
           echo ${a}
-          "cmd[@]"
+          "$cmd[@]"
           sqlfluff lint debezium.py test/sveik\ nu/nu.py
 
       - name: Run ruff linter new
