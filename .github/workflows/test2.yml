@@ -40,7 +40,7 @@ jobs:
       - name: Run sqlfluff linter
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: | 
-          IFS=',' my_array=("${{ steps.changed-files.outputs.all_changed_files }}")
+          IFS=',' my_array=(${{ steps.changed-files.outputs.all_changed_files }})
           varlist=()
           for file in "$my_array"; do
             test=\"${file}\"
