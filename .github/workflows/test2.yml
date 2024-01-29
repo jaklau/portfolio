@@ -41,11 +41,12 @@ jobs:
       - name: Run sqlfluff linter
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: | 
-          IFS=',' read -ra my_array <<< "${{ steps.changed-files.outputs.all_changed_files }}"
+          a=$(sed 's/ /\\ /g' <<< "${steps.changed-files.outputs.all_changed_files}")
+          IFS=',' read -ra my_array <<< "$a"
           varlist=()
           for file in "${my_array[@]}"; do
-            test=\"$file\"
-            varlist+="$test "
+#            test=\'$file\'
+            varlist+=$file
           done
           sqlfluff lint "${varlist[@]}"
 
