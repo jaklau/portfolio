@@ -41,11 +41,18 @@ jobs:
       - name: Run sqlfluff linter
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: |  
-          IFS=',' read -ra my_array <<< "${{ steps.changed-files.outputs.all_changed_files }}"
+          IFS=',' read -ra sql_files <<< "${{ steps.changed-files.outputs.all_changed_files }}"
           
-          for item in "${my_array[@]}"; do
-               sqlfluff lint "${item}"
-          done   
+          # Declare an empty array to store paths without quotes
+          formatted_files=()
+          
+          # Iterate through the array and add each file path without quotes to the new array
+          for file in "${sql_files[@]}"; do
+              formatted_files+=("$file")
+          done
+          
+          # Pass the array of formatted file paths to sqlfluff
+          sqlfluff lint "${formatted_files[@]}" --dialect mysql 
 
 
       - name: Run ruff linter new
