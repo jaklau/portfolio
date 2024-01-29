@@ -45,7 +45,7 @@ jobs:
           varlist=()
           for file in "${my_array[@]}"; do
             test=\"$file\"
-            varlist+="$test "
+            varlist+="$test"
           done
           sqlfluff lint "${varlist[@]}"
 
