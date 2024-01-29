@@ -36,18 +36,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
           pip install sqlfluff
+          cat test/sveik\ nu/nu.py
 
       - name: Run sqlfluff linter
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: | 
-          a=$(sed 's/ /\\ /g' <<< "${{ steps.changed-files.outputs.all_changed_files }}")
-          IFS=',' read -ra my_array <<< "$a"
+          IFS=',' read -ra my_array <<< "${{ steps.changed-files.outputs.all_changed_files }}"
           varlist=()
           for file in "${my_array[@]}"; do
-            test=${file}
+            test=\"$file\"
             varlist+="$test "
           done
-          sqlfluff lint $varlist
+          sqlfluff lint "${varlist[@]}"
 
 
       - name: Run ruff linter new
@@ -55,26 +55,4 @@ jobs:
         uses: chartboost/ruff-action@v1
         with:
           src: ${{ steps.changed-files.outputs.all_changed_files }} 
-          args: --config .github/workflows/ruff.toml --preview
-
-  python-lint2:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-
-      # Example 1
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v40
-        with:
-          files: '**.py'
-
-      - name: Run ruff linter new
-        if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
-        uses: chartboost/ruff-action@v1
-        with:
-          src: ${{ steps.changed-files.outputs.all_changed_files }}
           args: --config .github/workflows/ruff.toml --preview
