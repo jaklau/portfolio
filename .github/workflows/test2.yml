@@ -24,6 +24,7 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           files: '**.py'
+          files_separator: ','
 
       - name: setup python
         uses: actions/setup-python@v4
