@@ -44,7 +44,7 @@ jobs:
           IFS=',' read -ra my_array <<< "${{ steps.changed-files.outputs.all_changed_files }}"
           varlist=()
           for file in "${my_array[@]}"; do
-            test="${file} "
+            test=\"${file}\"
             varlist+=$test
           done
           sqlfluff lint "${varlist[@]}"
