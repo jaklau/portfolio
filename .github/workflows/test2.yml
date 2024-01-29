@@ -47,7 +47,6 @@ jobs:
 #          sqlfluff lint "$a"
           sqlfluff lint debezium.py test/sveik\ nu/nu.py
 
-
       - name: Run ruff linter new
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         uses: chartboost/ruff-action@v1
