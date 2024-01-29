@@ -36,6 +36,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
           pip install sqlfluff
+          cat test/sveik\ nu/nu.py
 
       - name: Run sqlfluff linter
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
