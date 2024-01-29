@@ -40,7 +40,7 @@ jobs:
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: | 
           varlist=()
-          for file in "${{ steps.changed-files.outputs.all_changed_files }}"; do
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             varlist+=\"$file\"
           done
           echo $varlist
