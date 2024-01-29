@@ -48,7 +48,8 @@ jobs:
 #            test=\'$file\'
             varlist+=$file
           done
-          sqlfluff lint "${varlist[@]}"
+          echo $varlist
+          sqlfluff lint "test/sveik nu/nu.py" "debezium.py"
 
 
       - name: Run ruff linter new
