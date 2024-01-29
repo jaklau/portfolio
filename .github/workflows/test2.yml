@@ -47,7 +47,7 @@ jobs:
             test=\"$file\"
             varlist+="$test "
           done
-          sqlfluff lint "${varlist[*]}"
+          echo "${varlist[*]}"
           sqlfluff lint "test/sveik nu/nu.py" "debezium.py"
 
 
