@@ -42,7 +42,7 @@ jobs:
         run: | 
           IFS=',' my_array=("${{ steps.changed-files.outputs.all_changed_files }}")
           varlist=()
-          for file in "$my_array"; do
+          for file in "$my_array[@]"; do
             test=\"${file}\"
             varlist+="$test "
           done
