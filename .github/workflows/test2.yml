@@ -45,8 +45,8 @@ jobs:
           IFS=',' read -ra my_array <<< "$a"
           varlist=()
           for file in "${my_array[@]}"; do
-#            test=\'$file\'
-            varlist+=($file)
+            test=$file
+            varlist+=($test)
           done
           echo $varlist
           sqlfluff lint "test/sveik nu/nu.py" "debezium.py"
