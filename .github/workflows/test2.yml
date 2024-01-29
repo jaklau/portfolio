@@ -24,6 +24,7 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           files: '**.py'
+          files_separator: ','
 
       - name: setup python
         uses: actions/setup-python@v4
@@ -39,8 +40,9 @@ jobs:
       - name: Run sqlfluff linter
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: | 
+          IFS=',' my_array=("${{ steps.changed-files.outputs.all_changed_files }}")
           varlist=()
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+          for file in "$my_array"; do
             test=\"${file}\"
             varlist+="$test "
           done
