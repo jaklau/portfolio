@@ -25,6 +25,14 @@ jobs:
         with:
           files: '**.py'
 
+      - name: Run sqlfluff linter
+        if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
+        run: ruff lint | 
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            "$file"
+          done
+
+
       - name: Run ruff linter new
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         uses: chartboost/ruff-action@v1
