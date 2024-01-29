@@ -42,7 +42,7 @@ jobs:
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: | 
           IFS=',' read -ra my_array <<< "${{ steps.changed-files.outputs.all_changed_files }}"
-          varlist=()
+          $IFS=' ' varlist=()
           for file in "${my_array[@]}"; do
             test=\"$file\"
             varlist+=$test
