@@ -28,7 +28,7 @@ jobs:
       - name: Run sqlfluff linter
         if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: ruff lint | 
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+          for file in "${{ steps.changed-files.outputs.all_changed_files }}"; do
             "$file"
           done
 
