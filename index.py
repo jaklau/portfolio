@@ -1,7 +1,6 @@
 from flask import Flask, render_template
 import os
 
-
 phone = os.environ.get('PHONE')
 email = os.environ.get('EMAIL')
 fa_kit = os.environ.get('FA_KIT')
