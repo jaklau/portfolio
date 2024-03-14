@@ -4,7 +4,6 @@ from os import environ
 import sys
 
 
-
 def open_file(config_file):
     with open(config_file, 'r') as file:
         data = file.read()
