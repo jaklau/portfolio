@@ -14,4 +14,4 @@ jobs:
         run: |
           response=$(echo curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/jaklau/portfolio/commits/${{ github.sha }})
           
-          curl $url
+          curl ${url}
