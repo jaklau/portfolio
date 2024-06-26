@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2.1.0
       - name: Printing
         run: |
-          if [ ${{ github.event.inputs.sha }} = "" ]; then
+          if [ $github.event.inputs.sha = "" ]; then
             sha=${{ github.sha }}
           else
             sha=${{ github.event.inputs.sha }}
